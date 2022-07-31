@@ -137,11 +137,9 @@ interface IPriceData {
   };
 }
 
-interface ICoinProps {
-  isDark: boolean;
-}
+interface ICoinProps {}
 
-function Coin({ isDark }: ICoinProps) {
+function Coin({}: ICoinProps) {
   //router-dom 6버전 이후로는 useParams의 타입을 설정 안해도 됨
   //! => 확장 할당 어션셜로 값이 무조건 할당되어있다고 컴파일러에게 전달해 값이 없어도 변수를 사용할 수 있게 함
   const { coinId } = useParams();
@@ -228,10 +226,7 @@ function Coin({ isDark }: ICoinProps) {
           </Tabs>
 
           <Routes>
-            <Route
-              path="chart"
-              element={<Chart coinId={coinId!} isDark={isDark} />}
-            />
+            <Route path="chart" element={<Chart coinId={coinId!} />} />
             <Route path="price" element={<Price />} />
           </Routes>
         </>
